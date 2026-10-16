@@ -1,17 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-{% if user.is_authenticated %}
 
-Hi {{ user.username }}! You are {{ user.age }} years old.
-<!-- end of new code -->
-<form action="{% url 'logout' %}" method="post">
-{% csrf_token %}
-<button type="submit">Log Out</button>
-</form>
+<h2>Available Tutors</h2>
+
+{% for tutor in tutors %}
+  <div class="tutor">
+    <h3>{{ tutor.username }}</h3>
+    <p><strong>Days available:</strong> {{ tutor.days|join:", " }}</p>
+    <p><strong>Times available:</strong> {{ tutor.hours|join:", " }}</p>
+    <p><strong>Courses:</strong> {{ tutor.subjects|join:", " }}</p>
+  </div>
+{% empty %}
+  <p>No tutors have signed up yet.</p>
+{% endfor %}
+
+<hr>
+
+{% if user.is_authenticated %}
+  <p>Hi {{ user.username }}!</p>
+  <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Log Out</button>
+  </form>
 {% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In as TA</a>
-<a href="{% url 'signup' %}">Sign Up as TA</a>
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In as TA</a>
+  <a href="{% url 'signup' %}">Sign Up as TA</a>
 {% endif %}
+
 {% endblock content %}
