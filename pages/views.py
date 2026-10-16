@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView
 from accounts.models import CustomUser
 
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
     model = CustomUser
     template_name = "home.html"
     context_object_name = "tutors"
