@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import CustomUser
 
-SUBJECTS = ["Math", "Physics", "Chemistry", "Biology", "Computer Science", "English"]
+SUBJECTS = ["CSCI150", "CSCI151", "CSCI152", "CSCI200", "CSCI300"]
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 HOURS = [
     "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
