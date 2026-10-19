@@ -6,7 +6,7 @@
 
 {% for tutor in tutors %}
   <div class="tutor">
-    <h3>{{ tutor.username }}</h3>
+    <h3><a href="{% url 'tutor_detail' tutor.pk %}">{{ tutor.username }}</a></h3>
     <p><strong>Days available:</strong> {{ tutor.days|join:", " }}</p>
     <p><strong>Times available:</strong> {{ tutor.hours|join:", " }}</p>
     <p><strong>Courses:</strong> {{ tutor.subjects|join:", " }}</p>

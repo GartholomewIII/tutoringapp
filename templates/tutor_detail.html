@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ tutor.username }} | Tutor Details{% endblock title %}
+{% block content %}
+
+<h2>{{ tutor.username }}</h2>
+<p><strong>Email:</strong> {{ tutor.email|default:"Not provided" }}</p>
+<p><strong>Days available:</strong> {{ tutor.days|join:", "|default:"Not specified" }}</p>
+<p><strong>Times available:</strong> {{ tutor.hours|join:", "|default:"Not specified" }}</p>
+<p><strong>Courses:</strong> {{ tutor.subjects|join:", "|default:"Not specified" }}</p>
+
+<a href="{% url 'home' %}">Back to tutors</a>
+
+{% endblock content %}
