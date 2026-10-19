@@ -5,11 +5,13 @@
 <h2>Available Tutors</h2>
 
 {% for tutor in tutors %}
-  <div class="tutor">
+  <div class="tutor card mb-3">
+  <div class="card-body">
     <h3><a href="{% url 'tutor_detail' tutor.pk %}">{{ tutor.username }}</a></h3>
     <p><strong>Days available:</strong> {{ tutor.days|join:", " }}</p>
     <p><strong>Times available:</strong> {{ tutor.hours|join:", " }}</p>
     <p><strong>Courses:</strong> {{ tutor.subjects|join:", " }}</p>
+  </div>
   </div>
 {% empty %}
   <p>No tutors have signed up yet.</p>
