@@ -19,6 +19,7 @@
 
 {% if user.is_authenticated %}
   <p>Hi {{ user.username }}!</p>
+  <a href="{% url 'update_hours' %}">Update my hours</a>
   <form action="{% url 'logout' %}" method="post">
     {% csrf_token %}
     <button type="submit">Log Out</button>

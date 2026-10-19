@@ -41,6 +41,19 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ("username", "email", "subjects", "days", "hours")
 
 
+class HoursUpdateForm(forms.ModelForm):
+    hours = forms.MultipleChoiceField(
+        choices=make_choices(HOURS),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label="Times available",
+    )
+
+    class Meta:
+        model = CustomUser
+        fields = ("hours",)
+
+
 class CustomUserChangeForm(UserChangeForm):
     subjects = forms.MultipleChoiceField(
         choices=make_choices(SUBJECTS),

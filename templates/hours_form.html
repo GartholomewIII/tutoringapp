@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Update Availability{% endblock title %}
+{% block content %}
+
+<h2>Update your available hours</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save hours</button>
+</form>
+
+{% endblock content %}
