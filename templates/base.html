@@ -54,29 +54,26 @@
             <div class="mr-auto">
                 <ul class="navbar-nav">
                     <a class="navbar-brand">Welcome, </a>
-                <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-
-    {{ user.username }}
+                    {{ user.username }}
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end">
+                <ul class="dropdown-menu">
                 <li>
                     <a class="dropdown-item" href="{% url 'password_change' %}">
                         Change Password
                     </a>
                 </li>
                 <li>
-                <hr class="dropdown-divider">
+                    <hr class="dropdown-divider">
                 </li>
                 <li>
                     <form method="post" action="{% url 'logout' %}"
-                    style="display:inline;">
-
-    {% csrf_token %}
+                    style="display:inline;">{% csrf_token %}
     
-                        <button type="submit" class="btn btn-link nav-link"
+                    <button type="submit" class="btn btn-link nav-link"
                         style="display:inline; cursor:pointer;">Logout</button>
                     </form>
                 </li>
